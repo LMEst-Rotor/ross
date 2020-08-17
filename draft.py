@@ -115,32 +115,9 @@ response.plot_1d(probe=[probe1, probe2]).show()
 speed_range = np.arange(0, 1000, 100)
 response = rotor.run_campbell(speed_range)
 response.plot().show()
-<<<<<<< HEAD
 
 # # CAMPBELL
 
 # speed_range = np.arange(0, 1000, 100)
 # response = rotor.run_campbell(speed_range)
 # response.plot().show()
-=======
-# >>> response = rotor.run_unbalance_response(node=3,
-# ...                                         unbalance_magnitude=10.0,
-# ...                                         unbalance_phase=0.0,
-# ...                                         frequency=speed)
-# response.yout[:, 77]  # doctest: +ELLIPSIS
-
-# plot time response for a given probe:
-# fig1 = response.plot_magnitude(probe=[probe1, probe2]).show()
-
-# plot orbit response - plotting 2D nodal orbit:
-
-# fig2 = response.plot_2d(node=node)
-
-# plot orbit response - plotting 3D orbits - full rotor model:
-# fig3 = response.plot_3d()
-# pio.show(fig1)
-# pio.show(fig3)
-# pio.show(fig2)
-
-print("")
->>>>>>> solve conflict
