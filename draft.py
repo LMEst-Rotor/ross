@@ -81,7 +81,6 @@ misalignment = MisalignmentFlexCombined(
     TD=0,  # Torque antes do acoplamento
     TL=0,  # Torque dopois do acoplamento
     n1=0,
-    n2=1,
     speed=1200,
 )
 
