@@ -82,14 +82,14 @@ misalignment = MisalignmentFlexCombined(
     TL=0,  # Torque dopois do acoplamento
     n1=0,
     n2=1,
-    speedI=1200,
+    speed=1200,
 )
 
 ## MISALIGNMENT
 
 probe1 = (14, 0)
 probe2 = (22, 0)
-response = rotor.run_misalignment(1200 * np.pi / 30, misalignment)
+response = rotor.run_misalignment(misalignment)
 response.plot_1d(probe=[probe1, probe2]).show()
 
 # # TIME RESPONSE
