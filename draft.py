@@ -5,6 +5,7 @@ from ross.defects import (
     MisalignmentFlexAngular,
     MisalignmentFlexCombined,
     MisalignmentFlexParallel,
+    MisalignmentRigid,
 )
 
 steel = rs.materials.steel
@@ -67,7 +68,7 @@ bearing1 = rs.BearingElement6DoF(
 )
 
 rotor = rs.Rotor(shaft_elem, [disk0, disk1], [bearing0, bearing1])
-rotor.plot_rotor().show()
+# rotor.plot_rotor().show()
 
 misalignment = MisalignmentFlexCombined(
     dt=0.0001,
@@ -88,9 +89,24 @@ misalignment = MisalignmentFlexCombined(
 
 probe1 = (14, 0)
 probe2 = (22, 0)
-response = rotor.run_misalignment(misalignment)
-response.plot_1d(probe=[probe1, probe2]).show()
+# response = rotor.run_misalignment(misalignment)
+# response.plot_1d(probe=[probe1, probe2]).show()
 
+misalignmentrigid = MisalignmentRigid(
+    dt=1e-4,
+    tI=0,
+    tF=1,
+    Kcoup_auxI=0.5,
+    Kcoup_auxF=0.5,
+    kCOUP=2e5,
+    eCOUP=2e-4,
+    TD=0,
+    TL=0,
+    n1=0,
+    speed=1200 * np.pi / 30,
+)
+
+rotor.run_misalignment_rigid(misalignmentrigid)
 # # TIME RESPONSE
 
 # node = 14
