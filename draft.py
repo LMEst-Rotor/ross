@@ -93,9 +93,8 @@ probe2 = (22, 0)
 # response.plot_1d(probe=[probe1, probe2]).show()
 
 misalignmentrigid = MisalignmentRigid(
-    dt=1e-4,
     tI=0,
-    tF=1,
+    tF=0.1,
     Kcoup_auxI=0.5,
     Kcoup_auxF=0.5,
     kCOUP=2e5,
