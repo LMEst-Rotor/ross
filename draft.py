@@ -94,7 +94,7 @@ probe2 = (22, 0)
 
 misalignmentrigid = MisalignmentRigid(
     tI=0,
-    tF=10,
+    tF=1,
     Kcoup_auxI=0.5,
     Kcoup_auxF=0.5,
     kCOUP=2e5,
