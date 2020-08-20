@@ -94,7 +94,7 @@ probe2 = (22, 0)
 
 misalignmentrigid = MisalignmentRigid(
     tI=0,
-    tF=0.1,
+    tF=10,
     Kcoup_auxI=0.5,
     Kcoup_auxF=0.5,
     kCOUP=2e5,
@@ -102,7 +102,7 @@ misalignmentrigid = MisalignmentRigid(
     TD=0,
     TL=0,
     n1=0,
-    speed=1200 * np.pi / 30,
+    speed=1200,
 )
 
 rotor.run_misalignment_rigid(misalignmentrigid)
