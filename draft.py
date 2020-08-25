@@ -60,6 +60,7 @@ kyy2 = 1.1235e8
 cxx2 = 13.4
 cyy2 = 8.4553
 
+
 bearing0 = rs.BearingElement6DoF(
     n=4, kxx=kxx1, kyy=kyy1, cxx=cxx1, cyy=cyy1, kzz=kzz, czz=czz
 )
@@ -94,7 +95,7 @@ probe2 = (22, 0)
 
 misalignmentrigid = MisalignmentRigid(
     tI=0,
-    tF=30,
+    tF=50,
     Kcoup_auxI=0.5,
     Kcoup_auxF=0.5,
     kCOUP=2e5,
@@ -105,7 +106,9 @@ misalignmentrigid = MisalignmentRigid(
     speed=1200,
 )
 
-rotor.run_misalignment_rigid(misalignmentrigid)
+misalignmentrigid = rotor.run_misalignment_rigid(misalignmentrigid)
+misalignmentrigid.plot_time_response([probe1, probe2]).show()
+misalignmentrigid.plot_dfft([probe1, probe2], log=True).show()
 # # TIME RESPONSE
 
 # node = 14
