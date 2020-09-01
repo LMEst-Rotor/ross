@@ -6,6 +6,7 @@ from ross.defects import (
     MisalignmentFlexCombined,
     MisalignmentFlexParallel,
     MisalignmentRigid,
+    Rubbing,
 )
 
 steel = rs.materials.steel
