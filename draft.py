@@ -87,28 +87,31 @@ misalignment = MisalignmentFlexCombined(
 )
 
 ## MISALIGNMENT
-
 probe1 = (14, 0)
 probe2 = (22, 0)
 # response = rotor.run_misalignment(misalignment)
 # response.plot_1d(probe=[probe1, probe2]).show()
 
-misalignmentrigid = MisalignmentRigid(
-    tI=0,
-    tF=50,
-    Kcoup_auxI=0.5,
-    Kcoup_auxF=0.5,
-    kCOUP=2e5,
-    eCOUP=2e-4,
-    TD=0,
-    TL=0,
-    n1=0,
-    speed=1200,
-)
+# misalignmentrigid = MisalignmentRigid(
+#     tI=0,
+#     tF=50,
+#     Kcoup_auxI=0.5,
+#     Kcoup_auxF=0.5,
+#     kCOUP=2e5,
+#     eCOUP=2e-4,
+#     TD=0,
+#     TL=0,
+#     n1=0,
+#     speed=1200,
+# )
 
-misalignmentrigid = rotor.run_misalignment_rigid(misalignmentrigid)
-misalignmentrigid.plot_time_response([probe1, probe2]).show()
-misalignmentrigid.plot_dfft([probe1, probe2], log=True).show()
+# misalignmentrigid = rotor.run_misalignment(misalignmentrigid)
+# misalignmentrigid.plot_time_response([probe1, probe2]).show()
+# misalignmentrigid.plot_dfft([probe1, probe2], log=True).show()
+
+misalignment = rotor.run_misalignment(misalignment)
+misalignment.plot_time_response([probe1, probe2]).show()
+misalignment.plot_dfft([probe1, probe2], log=True).show()
 # # TIME RESPONSE
 
 # node = 14
