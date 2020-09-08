@@ -1,13 +1,8 @@
 import numpy as np
 
 import ross as rs
-from ross.defects import (
-    MisalignmentFlexAngular,
-    MisalignmentFlexCombined,
-    MisalignmentFlexParallel,
-    MisalignmentRigid,
-    Rubbing,
-)
+from ross.defects import *
+from ross.defects.misalignment import misalignment_flex_parallel_example
 
 steel = rs.materials.steel
 steel.rho = 7.85e3
@@ -36,8 +31,8 @@ shaft_elem = [
         odl=o_d,
         idr=i_d,
         odr=o_d,
-        alpha=2.0501,
-        beta=1.4e-8,
+        alpha=8.0501,
+        beta=1.0e-5,
         rotary_inertia=True,
         shear_effects=True,
     )
@@ -50,16 +45,16 @@ Ip = 2 * Id
 disk0 = rs.DiskElement6DoF(n=12, m=2.6375, Id=Id, Ip=Ip)
 disk1 = rs.DiskElement6DoF(n=24, m=2.6375, Id=Id, Ip=Ip)
 
-kxx1 = 6.7072e5
-kyy1 = 7.8114e5
+kxx1 = 4.40e5
+kyy1 = 9.50e5
 kzz = 0
-cxx1 = 10.4
-cyy1 = 7.505
+cxx1 = 27.4
+cyy1 = 50.4
 czz = 0
-kxx2 = 2.010e6
-kyy2 = 1.1235e8
-cxx2 = 13.4
-cyy2 = 8.4553
+kxx2 = 4.6114e5
+kyy2 = 1.09e8
+cxx2 = 2.505
+cyy2 = 100.4553
 
 
 bearing0 = rs.BearingElement6DoF(
@@ -72,20 +67,20 @@ bearing1 = rs.BearingElement6DoF(
 rotor = rs.Rotor(shaft_elem, [disk0, disk1], [bearing0, bearing1])
 # rotor.plot_rotor().show()
 
-misalignment = MisalignmentFlexCombined(
-    dt=0.0001,
-    tI=0,
-    tF=30,
-    kd=40 * 10 ** (3),  # Rigidez radial do acoplamento flexivel
-    ks=38 * 10 ** (3),  # Rigidez de flexão do acoplamento flexivel
-    eCOUPx=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao x
-    eCOUPy=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao z
-    misalignment_angle=5 * np.pi / 180,  # Angulo do desalinhamento angular (rad)
-    TD=0,  # Torque antes do acoplamento
-    TL=0,  # Torque dopois do acoplamento
-    n1=0,
-    speed=1200,
-)
+# misalignment = MisalignmentFlexCombined(
+#     dt=0.0001,
+#     tI=0,
+#     tF=30,
+#     kd=40 * 10 ** (3),  # Rigidez radial do acoplamento flexivel
+#     ks=38 * 10 ** (3),  # Rigidez de flexão do acoplamento flexivel
+#     eCOUPx=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao x
+#     eCOUPy=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao z
+#     misalignment_angle=5 * np.pi / 180,  # Angulo do desalinhamento angular (rad)
+#     TD=0,  # Torque antes do acoplamento
+#     TL=0,  # Torque dopois do acoplamento
+#     n1=0,
+#     speed=1200,
+# )
 
 ## MISALIGNMENT
 probe1 = (14, 0)
