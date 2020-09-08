@@ -67,20 +67,21 @@ bearing1 = rs.BearingElement6DoF(
 rotor = rs.Rotor(shaft_elem, [disk0, disk1], [bearing0, bearing1])
 # rotor.plot_rotor().show()
 
-# misalignment = MisalignmentFlexCombined(
-#     dt=0.0001,
-#     tI=0,
-#     tF=30,
-#     kd=40 * 10 ** (3),  # Rigidez radial do acoplamento flexivel
-#     ks=38 * 10 ** (3),  # Rigidez de flexão do acoplamento flexivel
-#     eCOUPx=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao x
-#     eCOUPy=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao z
-#     misalignment_angle=5 * np.pi / 180,  # Angulo do desalinhamento angular (rad)
-#     TD=0,  # Torque antes do acoplamento
-#     TL=0,  # Torque dopois do acoplamento
-#     n1=0,
-#     speed=1200,
-# )
+misalignment = MisalignmentFlex(
+    dt=0.0001,
+    tI=0,
+    tF=30,
+    kd=40 * 10 ** (3),  # Rigidez radial do acoplamento flexivel
+    ks=38 * 10 ** (3),  # Rigidez de flexão do acoplamento flexivel
+    eCOUPx=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao x
+    eCOUPy=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao z
+    misalignment_angle=5 * np.pi / 180,  # Angulo do desalinhamento angular (rad)
+    TD=0,  # Torque antes do acoplamento
+    TL=0,  # Torque dopois do acoplamento
+    n1=0,
+    speed=1200,
+    mis_type="angular",
+)
 
 ## MISALIGNMENT
 probe1 = (14, 0)
@@ -88,7 +89,7 @@ probe2 = (22, 0)
 # response = rotor.run_misalignment(misalignment)
 # response.plot_1d(probe=[probe1, probe2]).show()
 
-# misalignmentrigid = MisalignmentRigid(
+# misalignment = MisalignmentRigid(
 #     tI=0,
 #     tF=50,
 #     Kcoup_auxI=0.5,
