@@ -1,4 +1,6 @@
 import numpy as np
+import scipy
+import toml
 
 import ross as rs
 from ross.defects import *
@@ -137,3 +139,21 @@ response.plot().show()
 # speed_range = np.arange(0, 1000, 100)
 # response = rotor.run_campbell(speed_range)
 # response.plot().show()
+
+
+crack = Crack(
+    dt=0.0001,
+    tI=0,
+    tF=30,
+    cd=0.5,
+    n_crack=19,
+    speed=1200,
+    massunb=massunbt,
+    phaseunb=phaseunbt,
+    crack_type="Mayes"
+    # torque=True,
+)
+
+rubbing = rotor.run_defect(crack)
+rubbing.plot_time_response([probe1, probe2]).show()
+rubbing.plot_dfft([probe1, probe2], log=True).show()
