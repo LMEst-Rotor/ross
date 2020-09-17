@@ -68,6 +68,9 @@ bearing1 = rs.BearingElement6DoF(
 rotor = rs.Rotor(shaft_elem, [disk0, disk1], [bearing0, bearing1])
 # rotor.plot_rotor().show()
 
+massunbt = np.array([5e-4, 0])
+phaseunbt = np.array([-np.pi / 2, 0])
+
 # misalignment = MisalignmentFlex(
 #     dt=0.0001,
 #     tI=0,
@@ -81,6 +84,8 @@ rotor = rs.Rotor(shaft_elem, [disk0, disk1], [bearing0, bearing1])
 #     TL=0,  # Torque dopois do acoplamento
 #     n1=0,
 #     speed=1200,
+#     massunb=massunbt,
+#     phaseunb=phaseunbt,
 #     mis_type="angular",
 # )
 
@@ -141,19 +146,19 @@ response.plot().show()
 # response.plot().show()
 
 
-crack = Crack(
-    dt=0.0001,
-    tI=0,
-    tF=30,
-    cd=0.2,
-    n_crack=18,
-    speed=1200,
-    massunb=massunbt,
-    phaseunb=phaseunbt,
-    crack_type="Mayes"
-    # torque=True,
-)
+# crack = Crack(
+#     dt=0.0001,
+#     tI=0,
+#     tF=30,
+#     cd=0.2,
+#     n_crack=18,
+#     speed=1200,
+#     massunb=massunbt,
+#     phaseunb=phaseunbt,
+#     crack_type="Mayes"
+#     # torque=True,
+# )
 
-rubbing = rotor.run_defect(crack)
-rubbing.plot_time_response([probe1, probe2]).show()
-rubbing.plot_dfft([probe1, probe2], log=True).show()
+# rubbing = rotor.run_defect(crack)
+# rubbing.plot_time_response([probe1, probe2]).show()
+# rubbing.plot_dfft([probe1, probe2], log=True).show()
