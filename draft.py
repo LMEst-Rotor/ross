@@ -74,7 +74,7 @@ phaseunbt = np.array([-np.pi / 2, 0])
 # misalignment = MisalignmentFlex(
 #     dt=0.0001,
 #     tI=0,
-#     tF=50,
+#     tF=2,
 #     kd=40 * 10 ** (3),  # Rigidez radial do acoplamento flexivel
 #     ks=38 * 10 ** (3),  # Rigidez de flexão do acoplamento flexivel
 #     eCOUPx=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao x
@@ -92,8 +92,9 @@ phaseunbt = np.array([-np.pi / 2, 0])
 ## MISALIGNMENT
 probe1 = (14, 0)
 probe2 = (22, 0)
-# response = rotor.run_misalignment(misalignment)
-# response.plot_1d(probe=[probe1, probe2]).show()
+# response = rotor.run_defect(misalignment)
+# results = misalignment.run_time_response()
+# response.plot_dfft(probe=[probe1, probe2], range_freq=[0, 100]).show()
 
 misalignment = MisalignmentRigid(
     tI=0,
