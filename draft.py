@@ -71,23 +71,23 @@ rotor = rs.Rotor(shaft_elem, [disk0, disk1], [bearing0, bearing1])
 massunbt = np.array([5e-4, 0])
 phaseunbt = np.array([-np.pi / 2, 0])
 
-# misalignment = MisalignmentFlex(
-#     dt=0.0001,
-#     tI=0,
-#     tF=2,
-#     kd=40 * 10 ** (3),  # Rigidez radial do acoplamento flexivel
-#     ks=38 * 10 ** (3),  # Rigidez de flexão do acoplamento flexivel
-#     eCOUPx=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao x
-#     eCOUPy=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao z
-#     misalignment_angle=15 * np.pi / 180,  # Angulo do desalinhamento angular (rad)
-#     TD=0,  # Torque antes do acoplamento
-#     TL=0,  # Torque dopois do acoplamento
-#     n1=0,
-#     speed=1200,
-#     massunb=massunbt,
-#     phaseunb=phaseunbt,
-#     mis_type="angular",
-# )
+misalignment = MisalignmentFlex(
+    dt=0.0001,
+    tI=0,
+    tF=2,
+    kd=40 * 10 ** (3),  # Rigidez radial do acoplamento flexivel
+    ks=38 * 10 ** (3),  # Rigidez de flexão do acoplamento flexivel
+    eCOUPx=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao x
+    eCOUPy=2 * 10 ** (-4),  # Distancia de desalinhamento entre os eixos - direcao z
+    misalignment_angle=15 * np.pi / 180,  # Angulo do desalinhamento angular (rad)
+    TD=0,  # Torque antes do acoplamento
+    TL=0,  # Torque dopois do acoplamento
+    n1=0,
+    speed=1200,
+    massunb=massunbt,
+    phaseunb=phaseunbt,
+    mis_type="angular",
+)
 
 ## MISALIGNMENT
 probe1 = (14, 0)
