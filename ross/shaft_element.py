@@ -33,8 +33,7 @@ class ShaftElement(Element):
     Where :math:`\alpha_0` and :math:`\alpha_1` are the bending on the yz plane
     and :math:`\beta_0` and :math:`\beta_1` are the bending on the xz plane.
 
-    Parameters
-    ----------
+    
     L : float, pint.Quantity
         Element length (m).
     idl : float, pint.Quantity
