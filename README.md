@@ -13,8 +13,7 @@ numerical simulation. Shaft elements, as a default, are modeled with the Timoshe
 and rotary inertia effects, and discretized by means of the Finite Element Method. Disks are assumed to be rigid bodies, 
 thus their strain energy is not taken into account. And bearings/seals are included as linear stiffness/damping coefficients.
 
-After defining the elements for the model, you can plot the rotor geometry and runs simulations such as static analysis, 
-Campbell Diagram, mode shapes, frequency response, and time response.
+
 
 You can try it out now by running the tutorial on [binder](https://mybinder.org/v2/gh/ross-rotordynamics/ross/0.3?filepath=%2Fdocs%2Fexamples).
 
